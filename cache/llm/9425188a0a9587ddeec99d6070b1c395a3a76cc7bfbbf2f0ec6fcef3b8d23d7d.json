@@ -1,0 +1,56 @@
+{
+  "retrieved_at": "2026-11-26T19:23:11.147953+00:00",
+  "source": "https://api.groq.com/openai/v1/chat/completions",
+  "request": {
+    "model": "openai/gpt-oss-120b",
+    "temperature": 0,
+    "messages": [
+      {
+        "role": "system",
+        "content": "\n    You are a travel planning assistant.\n    Only use the provided statistics.\n    Do not invent numbers or calculate new ones.\n    Copy numbers exactly and use digits instead of words.\n    Match each statistic to the correct neighborhood.\n    Do not label neighborhoods as safe or dangerous.\n    Explain that reported incidents do not measure individual risk.\n    Keep the summary short and easy to understand.\n    "
+      },
+      {
+        "role": "user",
+        "content": "\n    Summarize the Seattle neighborhood outlook for July.\n\n    Discuss the neighborhoods with the most incidents, fewest\n    incidents, and largest seasonal increases.\n\n    Explain the difference between high incident counts\n    and high seasonal ratios.\n\n    Data:\n    month,ranking_type,rank,neighborhood,monthly_average,avg_persons_incidents,avg_property_incidents,avg_other_incidents,overall_monthly_average,city_share_pct,seasonal_ratio,seasonal_change_pct\r\n7,most_incidents,1,CAPITOL HILL,472.33,64.33,323.33,84.67,384.44,7.33,1.23,22.86\r\n7,most_incidents,2,DOWNTOWN COMMERCIAL,397.67,56.0,234.67,107.0,355.28,6.17,1.12,11.93\r\n7,most_incidents,3,QUEEN ANNE,352.0,28.33,281.0,42.67,335.83,5.46,1.05,4.81\r\n7,most_incidents,4,NORTHGATE,326.67,31.33,237.67,57.67,311.69,5.07,1.05,4.8\r\n7,most_incidents,5,SLU/CASCADE,306.67,39.33,222.67,44.67,272.31,4.76,1.13,12.62\r\n7,largest_seasonal_ratio,1,EASTLAKE - EAST,14.0,2.0,9.0,3.0,10.94,0.22,1.28,27.92\r\n7,largest_seasonal_ratio,2,MILLER PARK,57.0,1.67,49.0,6.33,44.72,0.88,1.27,27.45\r\n7,largest_seasonal_ratio,3,SOUTH BEACON HILL,26.0,3.67,18.67,3.67,20.89,0.4,1.24,24.47\r\n7,largest_seasonal_ratio,4,CAPITOL HILL,472.33,64.33,323.33,84.67,384.44,7.33,1.23,22.86\r\n7,largest_seasonal_ratio,5,HILLMAN CITY,31.0,4.33,23.33,3.33,25.5,0.48,1.22,21.57\r\n7,fewest_incidents,1,COMMERCIAL HARBOR ISLAND,4.0,0.0,3.33,0.67,3.33,0.06,1.2,20.0\r\n7,fewest_incidents,2,COMMERCIAL DUWAMISH,6.33,0.0,4.67,1.67,5.56,0.1,1.14,14.0\r\n7,fewest_incidents,3,PIGEON POINT,8.33,0.0,6.0,2.33,7.69,0.13,1.08,8.3\r\n7,fewest_incidents,4,EASTLAKE - EAST,14.0,2.0,9.0,3.0,10.94,0.22,1.28,27.92\r\n7,fewest_incidents,5,MADISON PARK,18.67,1.33,15.0,2.33,20.78,0.29,0.9,-10.16\r\n\n    "
+      }
+    ]
+  },
+  "status_code": 200,
+  "response": {
+    "id": "chatcmpl-338b4e0d-39f9-4833-98d2-4e078890ad4c",
+    "object": "chat.completion",
+    "created": 1795720991,
+    "model": "openai/gpt-oss-120b",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "**July outlook \u2013 Seattle neighborhoods**\n\n**Most incidents** \u2013\u202fCAPITOL HILL leads with a monthly_average of\u202f472.33 (overall_monthly_average\u202f384.44) and a city_share_pct of\u202f7.33. The next highest are DOWNTOWN COMMERCIAL (397.67) and QUEEN ANNE (352.0).\n\n**Fewest incidents** \u2013\u202fCOMMERCIAL HARBOR ISLAND reports the lowest activity: monthly_average\u202f4.0, overall_monthly_average\u202f3.33 and city_share_pct\u202f0.06. The next lowest are COMMERCIAL DUWAMISH (6.33) and PIGEON POINT (8.33).\n\n**Largest seasonal increases** \u2013\u202fEASTLAKE\u202f\u2013\u202fEAST shows the biggest seasonal_ratio of\u202f1.28 and a seasonal_change_pct of\u202f27.92\u202f%. MILLER PARK follows with a ratio\u202f1.27 and change\u202f27.45\u202f%, then SOUTH BEACON HILL (1.24,\u202f24.47\u202f%). CAPITOL HILL also appears here with a ratio\u202f1.23 and change\u202f22.86\u202f%.\n\n**What the numbers mean** \u2013\u202fA high incident count (e.g., CAPITOL HILL) reflects many reported events in July, while a high seasonal_ratio (e.g., EASTLAKE\u202f\u2013\u202fEAST) indicates that the month\u2019s incidents are a large increase compared with the prior period, even if the absolute numbers are modest. Reported incidents are aggregates and do not measure the risk to any individual person.",
+          "reasoning": "We need to summarize Seattle neighborhood outlook for July. Discuss neighborhoods with most incidents, fewest incidents, and largest seasonal increases. Explain difference between high incident counts and high seasonal ratios. Use only provided stats, copy numbers exactly, digits not words. No invented numbers. Do not label neighborhoods as safe or dangerous. Explain that reported incidents do not measure individual risk. Keep summary short and easy to understand.\n\nWe have data rows. For most incidents: top 5 list. Probably mention top 3? It says discuss neighborhoods with the most incidents, fewest incidents, and largest seasonal increases. So we can mention the #1 most incidents (CAPITOL HILL) and maybe also second? Probably mention the top one for each category. But could mention a few. Keep short.\n\nLargest seasonal increases: largest seasonal ratio list top 5. The highest seasonal_ratio is EASTLAKE - EAST with 1.28 and seasonal_change_pct 27.92. Next MILLER PARK 1.27, 27.45. Then SOUTH BEACON HILL 1.24, 24.47. Also CAPITOL HILL appears with 1.23, 22.86. HILLMAN CITY 1.22, 21.57.\n\nFewest incidents: top 5 list. The lowest overall_monthly_average is COMMERCIAL HARBOR ISLAND with 3.33, city_share_pct 0.06, seasonal_ratio 1.2, seasonal_change_pct 20.0. Next COMMERCIAL DUWAMISH 5.56, etc.\n\nWe need to explain difference between high incident counts and high seasonal ratios: high counts reflect many incidents overall, while high seasonal ratio shows a larger increase compared to previous period, regardless of absolute numbers.\n\nAlso note that reported incidents do not measure individual risk.\n\nWe must copy numbers exactly. Use digits. No invented numbers. Use the stats.\n\nLet's craft a short paragraph.\n\nWill include:\n\n- Most incidents: CAPITOL HILL (monthly_average 472.33, overall_monthly_average 384.44, city_share_pct 7.33). Could also mention DOWNTOWN COMMERCIAL (397.67) etc.\n\n- Fewest incidents: COMMERCIAL HARBOR ISLAND (monthly_average 4.0, overall_monthly_average 3.33, city_share_pct 0.06).\n\n- Largest seasonal increase: EASTLAKE - EAST (seasonal_ratio 1.28, seasonal_change_pct 27.92). Also MILLER PARK (1.27, 27.45).\n\nExplain difference.\n\nMake sure not to label safe/dangerous.\n\nLet's produce."
+        },
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "queue_time": 0.138116445,
+      "prompt_tokens": 947,
+      "prompt_time": 0.052163989,
+      "completion_tokens": 879,
+      "completion_time": 1.831101672,
+      "total_tokens": 1826,
+      "total_time": 1.883265661,
+      "completion_tokens_details": {
+        "reasoning_tokens": 543
+      }
+    },
+    "usage_breakdown": null,
+    "system_fingerprint": "fp_4200b3f836",
+    "x_groq": {
+      "id": "req_01m8cmzjc2e0jsn2genz691bgj",
+      "seed": 667699149
+    },
+    "service_tier": "on_demand"
+  }
+}

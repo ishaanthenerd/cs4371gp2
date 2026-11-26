@@ -5,6 +5,8 @@ import pandas as pd
 
 from pathlib import Path
 
+from src.analytics.llm_utils import call_llm, validate_numbers
+
 
 # ==========================================
 # 1. Configuration
@@ -353,6 +355,91 @@ def save_monthly_outlook(month):
 
 
 # ==========================================
+# Generate grounded LLM summary
+# ==========================================
+
+def generate_monthly_summary(month):
+    month_name = calendar.month_name[month]
+    ranked = get_ranked_lists(month).round(2)
+    source_data = ranked.to_csv(index=False)
+
+    system_prompt = """
+    You are a travel planning assistant.
+    Only use the provided statistics.
+    Do not invent numbers or calculate new ones.
+    Copy numbers exactly and use digits instead of words.
+    Match each statistic to the correct neighborhood.
+    Do not label neighborhoods as safe or dangerous.
+    Explain that reported incidents do not measure individual risk.
+    Keep the summary short and easy to understand.
+    """
+
+    user_prompt = f"""
+    Summarize the Seattle neighborhood outlook for {month_name}.
+
+    Discuss the neighborhoods with the most incidents, fewest
+    incidents, and largest seasonal increases.
+
+    Explain the difference between high incident counts
+    and high seasonal ratios.
+
+    Data:
+    {source_data}
+    """
+
+    summary = None
+
+    # Retry once if the response fails validation
+
+    for attempt in range(2):
+        try:
+            answer = call_llm(system_prompt, user_prompt)
+            passed, unsupported = validate_numbers(answer, source_data)
+
+            if passed and answer and answer.strip():
+                summary = answer
+                print("Numerical validation passed")
+                break
+
+            print("Unsupported numbers:", unsupported)
+            user_prompt += "\nUse only exact numbers from the table."
+
+        except Exception as error:
+            print("LLM request failed:", type(error).__name__)
+
+    output_path = OUTPUT_DIR / f"t2_summary_{month_name.lower()}.md"
+
+    # Use the calculated table if the summary fails validation
+
+    if summary:
+        content = summary + "\n\nNumerical validation: PASSED"
+    else:
+        content = (
+            "LLM summary unavailable or failed validation.\n\n"
+            + "```text\n" + ranked.to_string(index=False) + "\n```"
+        )
+
+    content = (
+        f"# Seattle Neighborhood Outlook - {month_name}\n\n"
+        + content
+        + "\n\nSource: Seattle Police incident data (2022-2024)."
+        + "\nModel: openai/gpt-oss-120b"
+    )
+
+    OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
+    output_path.write_text(content, encoding="utf-8")
+
+    print(f"Saved: {output_path.name}")
+
+    return {
+        "month": month,
+        "summary": summary,
+        "validated": summary is not None,
+        "ranked_data": ranked
+    }
+
+
+# ==========================================
 # 8. Run Task 2 analytics
 # ==========================================
 
@@ -402,6 +489,15 @@ def main():
             )
 
     print("\nTask 2 numerical analytics completed.")
+
+    print("\nGenerating grounded LLM summaries...")
+
+    for month in [1, 7]:
+        
+        result = generate_monthly_summary(month)
+        print(f"{calendar.month_name[month]} validated: {result['validated']}")
+
+    print("\nTask 2 processing completed.")
 
 
 if __name__ == "__main__":
