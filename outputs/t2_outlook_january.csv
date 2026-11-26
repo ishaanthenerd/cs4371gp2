@@ -1,0 +1,16 @@
+month,ranking_type,rank,neighborhood,monthly_average,avg_persons_incidents,avg_property_incidents,avg_other_incidents,overall_monthly_average,city_share_pct,seasonal_ratio,seasonal_change_pct
+1,most_incidents,1,DOWNTOWN COMMERCIAL,362.0,47.33,217.0,97.67,355.28,6.03,1.02,1.89
+1,most_incidents,2,CAPITOL HILL,353.67,43.67,245.33,64.67,384.44,5.89,0.92,-8.01
+1,most_incidents,3,QUEEN ANNE,341.67,22.33,283.0,36.33,335.83,5.69,1.02,1.74
+1,most_incidents,4,NORTHGATE,333.0,28.33,257.67,47.0,311.69,5.55,1.07,6.84
+1,most_incidents,5,UNIVERSITY,269.67,25.0,214.33,30.33,259.67,4.49,1.04,3.85
+1,largest_seasonal_ratio,1,EASTLAKE - WEST,59.0,0.67,52.0,6.33,45.42,0.98,1.3,29.91
+1,largest_seasonal_ratio,2,MID BEACON HILL,69.67,5.0,54.33,10.33,56.64,1.16,1.23,23.0
+1,largest_seasonal_ratio,3,WALLINGFORD,128.67,5.33,116.0,7.33,106.58,2.14,1.21,20.72
+1,largest_seasonal_ratio,4,EASTLAKE - EAST,12.67,1.0,10.33,1.33,10.94,0.21,1.16,15.74
+1,largest_seasonal_ratio,5,HILLMAN CITY,29.33,4.0,19.33,6.0,25.5,0.49,1.15,15.03
+1,fewest_incidents,1,COMMERCIAL HARBOR ISLAND,1.0,0.33,0.67,0.0,3.33,0.02,0.3,-70.0
+1,fewest_incidents,2,COMMERCIAL DUWAMISH,5.33,0.0,5.33,0.0,5.56,0.09,0.96,-4.0
+1,fewest_incidents,3,PIGEON POINT,8.33,0.33,6.67,1.33,7.69,0.14,1.08,8.3
+1,fewest_incidents,4,EASTLAKE - EAST,12.67,1.0,10.33,1.33,10.94,0.21,1.16,15.74
+1,fewest_incidents,5,MADISON PARK,18.33,0.33,15.33,2.67,20.78,0.31,0.88,-11.76
