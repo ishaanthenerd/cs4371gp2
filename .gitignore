@@ -1,1 +1,3 @@
 .env
+src/analytics/T1_seattle_incidents.csv
+src/analytics/T1_seattle_incidents.parquet
