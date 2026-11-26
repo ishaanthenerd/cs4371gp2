@@ -58,7 +58,7 @@ def fetch_data(params, filename):
     if not APP_TOKEN:
         raise RuntimeError("SOCRATA_APP_TOKEN is missing")
 
-    # API throttling requirement
+    # minimum one-second wait between API requests
 
     time.sleep(1)
 
@@ -245,7 +245,6 @@ def main():
 
     print("\nTask 1 ingestion completed successfully.")
 
-
 if __name__ == "__main__":
-    
+
     main()

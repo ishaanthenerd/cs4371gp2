@@ -1,0 +1,45 @@
+SAFESTAY SEATTLE - TASK 1 SUMMARY
+=============================================
+
+DATA CLEANING
+Initial raw records: 253,643
+Duplicate removal: before=253,643, removed=0, remaining=253,643
+Missing or invalid dates: before=253,643, removed=0, remaining=253,643
+Outside requested date range: before=253,643, removed=0, remaining=253,643
+Missing or placeholder neighborhoods: before=253,643, removed=2,327, remaining=251,316
+Invalid coordinates: before=251,316, removed=34,342, remaining=216,974
+Out-of-jurisdiction records: before=216,974, removed=8, remaining=216,966
+Outside Seattle bounding box: before=216,966, removed=82, remaining=216,884
+Outside Seattle polygon: before=216,884, removed=253, remaining=216,631
+
+Final cleaned records: 216,631
+Neighborhoods: 58
+Aggregated rows: 2,081
+Earliest incident: 2022-01-01 00:00:00
+Latest incident: 2024-12-31 23:55:00
+
+CATEGORY MAPPING
+PERSON -> crimes against persons
+PROPERTY -> crimes against property
+All remaining values -> other
+
+METHODOLOGY
+Counts represent individual reported offense records.
+Duplicates identified using offense_id.
+Monthly statistics use offense_date.
+Missing offense dates are excluded by the API date filter.
+NOT_A_CRIME records retained under other.
+UNKNOWN and placeholder neighborhoods excluded.
+OOJ records excluded as out-of-jurisdiction.
+Coordinates checked against Seattle Area Polygon.
+Boundary is generalized and extends past parts of shoreline.
+Common offense types ranked by count, then alphabetically.
+
+DATA SOURCES
+https://data.seattle.gov/resource/tazs-3rd5.json
+https://services.arcgis.com/ZOyb2t4B0UYuYNYH/arcgis/rest/services/Seattle_Area_Polygon/FeatureServer/0/query
+
+VALIDATION
+Cleaned and aggregated incident counts match.
+All three category totals sum to total incidents.
+Saved Parquet verification passed.

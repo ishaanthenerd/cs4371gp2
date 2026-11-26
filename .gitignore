@@ -19,3 +19,7 @@ test_parquet/
 spark-warehouse/
 derby.log
 metastore_db/
+
+# Spark-generated metadata
+*.crc
+_SUCCESS
