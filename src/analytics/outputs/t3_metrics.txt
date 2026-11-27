@@ -1,0 +1,22 @@
+TASK 3: LLM COMPARISON RESULTS
+=======================================================
+
+Evaluation methodology:
+- Spearman correlation uses average ranks for ties.
+- Top-five ties are broken by estimate, then alphabetically.
+- Percentage error is absolute percentage error.
+- Actual averages of zero are excluded from median percentage error.
+- Missing and invented neighborhoods are matched case-insensitively.
+
+
+E1 - GROQ
+---------------------------------------------
+Model: openai/gpt-oss-120b
+Data supplied: False
+Spearman correlation: 0.4328
+Top-five overlap: 2/5
+Median percentage error: 78.90%
+Evaluated neighborhoods: 58
+Missing neighborhoods: []
+Invented neighborhoods: []
+Zero-actual neighborhoods excluded from error: 0

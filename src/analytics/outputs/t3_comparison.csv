@@ -1,0 +1,2 @@
+experiment,provider,model,with_data,spearman_correlation,top5_overlap,median_percentage_error,missing_count,missing_neighborhoods,invented_count,invented_neighborhoods,zero_actual_excluded,evaluated_count
+E1,groq,openai/gpt-oss-120b,False,0.4328335543862138,2,78.89564746167378,0,[],0,[],0,58
