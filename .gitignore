@@ -1,1 +1,25 @@
+# API keys and secrets
 .env
+
+# Python generated files
+__pycache__/
+*.pyc
+.venv/
+
+# Raw datasets
+data/raw/
+
+# Raw incident API cache
+cache/incidents/
+
+# Local test files
+test_parquet/
+
+# Spark generated files
+spark-warehouse/
+derby.log
+metastore_db/
+
+# Spark-generated metadata
+*.crc
+_SUCCESS

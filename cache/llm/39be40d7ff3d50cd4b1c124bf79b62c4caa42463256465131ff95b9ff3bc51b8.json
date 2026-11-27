@@ -1,0 +1,56 @@
+{
+  "retrieved_at": "2026-11-26T19:23:07.854184+00:00",
+  "source": "https://api.groq.com/openai/v1/chat/completions",
+  "request": {
+    "model": "openai/gpt-oss-120b",
+    "temperature": 0,
+    "messages": [
+      {
+        "role": "system",
+        "content": "\n    You are a travel planning assistant.\n    Only use the provided statistics.\n    Do not invent numbers or calculate new ones.\n    Copy numbers exactly and use digits instead of words.\n    Match each statistic to the correct neighborhood.\n    Do not label neighborhoods as safe or dangerous.\n    Explain that reported incidents do not measure individual risk.\n    Keep the summary short and easy to understand.\n    "
+      },
+      {
+        "role": "user",
+        "content": "\n    Summarize the Seattle neighborhood outlook for January.\n\n    Discuss the neighborhoods with the most incidents, fewest\n    incidents, and largest seasonal increases.\n\n    Explain the difference between high incident counts\n    and high seasonal ratios.\n\n    Data:\n    month,ranking_type,rank,neighborhood,monthly_average,avg_persons_incidents,avg_property_incidents,avg_other_incidents,overall_monthly_average,city_share_pct,seasonal_ratio,seasonal_change_pct\r\n1,most_incidents,1,DOWNTOWN COMMERCIAL,362.0,47.33,217.0,97.67,355.28,6.03,1.02,1.89\r\n1,most_incidents,2,CAPITOL HILL,353.67,43.67,245.33,64.67,384.44,5.89,0.92,-8.01\r\n1,most_incidents,3,QUEEN ANNE,341.67,22.33,283.0,36.33,335.83,5.69,1.02,1.74\r\n1,most_incidents,4,NORTHGATE,333.0,28.33,257.67,47.0,311.69,5.55,1.07,6.84\r\n1,most_incidents,5,UNIVERSITY,269.67,25.0,214.33,30.33,259.67,4.49,1.04,3.85\r\n1,largest_seasonal_ratio,1,EASTLAKE - WEST,59.0,0.67,52.0,6.33,45.42,0.98,1.3,29.91\r\n1,largest_seasonal_ratio,2,MID BEACON HILL,69.67,5.0,54.33,10.33,56.64,1.16,1.23,23.0\r\n1,largest_seasonal_ratio,3,WALLINGFORD,128.67,5.33,116.0,7.33,106.58,2.14,1.21,20.72\r\n1,largest_seasonal_ratio,4,EASTLAKE - EAST,12.67,1.0,10.33,1.33,10.94,0.21,1.16,15.74\r\n1,largest_seasonal_ratio,5,HILLMAN CITY,29.33,4.0,19.33,6.0,25.5,0.49,1.15,15.03\r\n1,fewest_incidents,1,COMMERCIAL HARBOR ISLAND,1.0,0.33,0.67,0.0,3.33,0.02,0.3,-70.0\r\n1,fewest_incidents,2,COMMERCIAL DUWAMISH,5.33,0.0,5.33,0.0,5.56,0.09,0.96,-4.0\r\n1,fewest_incidents,3,PIGEON POINT,8.33,0.33,6.67,1.33,7.69,0.14,1.08,8.3\r\n1,fewest_incidents,4,EASTLAKE - EAST,12.67,1.0,10.33,1.33,10.94,0.21,1.16,15.74\r\n1,fewest_incidents,5,MADISON PARK,18.33,0.33,15.33,2.67,20.78,0.31,0.88,-11.76\r\n\n    "
+      }
+    ]
+  },
+  "status_code": 200,
+  "response": {
+    "id": "chatcmpl-216a2e17-e858-439b-a6d5-8467b509d145",
+    "object": "chat.completion",
+    "created": 1795720987,
+    "model": "openai/gpt-oss-120b",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "**January Seattle neighborhood outlook**\n\n**Most incidents (monthly_average)**  \n- DOWNTOWN COMMERCIAL \u2013 362.0 (overall_monthly_average\u202f355.28, city_share_pct\u202f6.03)  \n- CAPITOL HILL \u2013 353.67 (overall_monthly_average\u202f384.44, city_share_pct\u202f5.89)  \n- QUEEN ANNE \u2013 341.67 (overall_monthly_average\u202f335.83, city_share_pct\u202f5.69)  \n- NORTHGATE \u2013 333.0 (overall_monthly_average\u202f311.69, city_share_pct\u202f5.55)  \n- UNIVERSITY \u2013 269.67 (overall_monthly_average\u202f259.67, city_share_pct\u202f4.49)  \n\n**Fewest incidents (monthly_average)**  \n- COMMERCIAL HARBOR ISLAND \u2013 1.0 (overall_monthly_average\u202f3.33, city_share_pct\u202f0.02)  \n- COMMERCIAL DUWAMISH \u2013 5.33 (overall_monthly_average\u202f5.56, city_share_pct\u202f0.09)  \n- PIGEON POINT \u2013 8.33 (overall_monthly_average\u202f7.69, city_share_pct\u202f0.14)  \n- EASTLAKE \u2013 EAST \u2013 12.67 (overall_monthly_average\u202f10.94, city_share_pct\u202f0.21)  \n- MADISON PARK \u2013 18.33 (overall_monthly_average\u202f20.78, city_share_pct\u202f0.31)  \n\n**Largest seasonal increases (seasonal_ratio, seasonal_change_pct)**  \n- EASTLAKE \u2013 WEST \u2013 ratio\u202f1.3, change\u202f29.91%  \n- MID BEACON HILL \u2013 ratio\u202f1.23, change\u202f23.0%  \n- WALLINGFORD \u2013 ratio\u202f1.21, change\u202f20.72%  \n- EASTLAKE \u2013 EAST \u2013 ratio\u202f1.16, change\u202f15.74%  \n- HILLMAN CITY \u2013 ratio\u202f1.15, change\u202f15.03%  \n\n**What the numbers mean**  \n- A high *monthly_average* shows many incidents occurred in that month, but it does not tell how likely any one person is to be affected.  \n- A high *seasonal_ratio* (and its percent change) indicates the month\u2019s incident level is unusually high compared with the typical season, even if the absolute count is low.  \n\nThese figures describe reported incidents only; they are not a direct measure of individual risk.",
+          "reasoning": "We need to summarize Seattle neighborhood outlook for January. Discuss neighborhoods with most incidents, fewest incidents, and largest seasonal increases. Explain difference between high incident counts and high seasonal ratios. Use only provided stats, copy numbers exactly, digits not words. No invented numbers. Do not label neighborhoods as safe or dangerous. Explain reported incidents do not measure individual risk. Keep summary short and easy to understand.\n\nWe have data rows: most_incidents top 5, fewest_incidents top 5, largest_seasonal_ratio top 5.\n\nWe need to mention neighborhoods with most incidents: DOWNTOWN COMMERCIAL (monthly_average 362.0, etc), CAPITOL HILL, QUEEN ANNE, NORTHGATE, UNIVERSITY. Provide maybe monthly_average and overall_monthly_average? Use numbers.\n\nFewest incidents: COMMERCIAL HARBOR ISLAND (monthly_average 1.0), COMMERCIAL DUWAMISH (5.33), PIGEON POINT (8.33), EASTLAKE - EAST (12.67), MADISON PARK (18.33). Note EASTLAKE - EAST appears both fewest and also in largest seasonal ratio list; that's okay.\n\nLargest seasonal increases: largest seasonal_ratio (seasonal_ratio column) and seasonal_change_pct. Provide neighborhoods: EASTLAKE - WEST (seasonal_ratio 1.3, seasonal_change_pct 29.91), MID BEACON HILL (1.23, 23.0), WALLINGFORD (1.21, 20.72), EASTLAKE - EAST (1.16, 15.74), HILLMAN CITY (1.15, 15.03). Provide numbers.\n\nExplain difference between high incident counts and high seasonal ratios: high counts reflect many incidents overall, while high seasonal ratio shows incidents are higher relative to typical season, even if absolute numbers low.\n\nAlso note reported incidents do not measure individual risk.\n\nMake summary short, easy to understand. Use bullet points maybe.\n\nMake sure to copy numbers exactly, include decimals as given.\n\nDo not label neighborhoods as safe/dangerous.\n\nProceed."
+        },
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "queue_time": 0.340895071,
+      "prompt_tokens": 946,
+      "prompt_time": 0.266701032,
+      "completion_tokens": 961,
+      "completion_time": 1.9983680590000001,
+      "total_tokens": 1907,
+      "total_time": 2.265069091,
+      "completion_tokens_details": {
+        "reasoning_tokens": 430
+      }
+    },
+    "usage_breakdown": null,
+    "system_fingerprint": "fp_c15aa9c1b7",
+    "x_groq": {
+      "id": "req_01m8cmzej8er7a4hr09a7x9gmq",
+      "seed": 962835595
+    },
+    "service_tier": "on_demand"
+  }
+}
